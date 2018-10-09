@@ -1,6 +1,24 @@
 # Spring cache demo
 
-本demo使用Spring cache框架搭建了个demo，cache的实现为redis，通过自定义`CacheManager`的bean来设置过期时间以及自定义的序列化方式。
+项目使用Spring cache框架搭建了个demo，cache的实现为redis，通过自定义`CacheManager`的bean来设置过期时间以及自定义的序列化方式。
+
+项目基于Spring boot构建，版本号为：`2.0.5.RELEASE`
+
+cache主要依赖：
+
+```pom
+ 		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+```
+
+
+
 配置代码：
 
 
