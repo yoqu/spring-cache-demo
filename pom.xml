@@ -43,6 +43,11 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.uyoqu</groupId>
+            <artifactId>docs-core</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -50,6 +55,61 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>com.uyoqu</groupId>
+                <artifactId>hello-docs-plugin</artifactId>
+                <version>1.0-SNAPSHOT</version>
+                <configuration>
+                    <!--<docDirectory>${project.basedir}/docs/api-docs</docDirectory>-->
+                    <scanPackage>
+                        <package>com.uyoqu.demo.spring.cache.demo</package>
+                    </scanPackage>
+                    <appName>案例项目</appName>
+                    <copyright>spring cache demo</copyright>
+                    <headers>
+                        <header>
+                            <name>X-Ca-Version</name>
+                            <desc>接口版本号</desc>
+                            <required>true</required>
+                        </header>
+                        <header>
+                            <name>X-Ca-Api</name>
+                            <desc>接口服务名</desc>
+                            <required>true</required>
+                        </header>
+                        <header>
+                            <name>X-Ca-Timestamp</name>
+                            <desc>时间戳，单位毫秒</desc>
+                            <required>true</required>
+                        </header>
+                        <header>
+                            <name>Content-Type</name>
+                            <desc>application/octet-stream</desc>
+                            <remark>请求文本类型,二进制数据流</remark>
+                            <required>true</required>
+                        </header>
+                        <header>
+                            <name>X-Ca-Signature</name>
+                            <remark>签名</remark>
+                            <required>true</required>
+                        </header>
+                    </headers>
+                    <resps>
+                        <resp>
+                            <name>code</name>
+                            <desc>返回编码</desc>
+                        </resp>
+                        <resp>
+                            <name>msg</name>
+                            <desc>返回消息</desc>
+                        </resp>
+                    </resps>
+                    <tips>
+                        <tip>请求头必须加上application/json</tip>
+                        <tip>数据格式:JSON</tip>
+                    </tips>
+                </configuration>
             </plugin>
         </plugins>
     </build>

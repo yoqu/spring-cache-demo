@@ -19,7 +19,7 @@ public class UserListHandler {
 
     public static final Logger logger = LoggerFactory.getLogger(UserListHandler.class);
 
-    @Cacheable(value = "dbusers")
+    @Cacheable(value = "dbusers", condition = "")
     public List<User> findAll() {
         logger.info(">>>>>>>>>>>>>>查找全部用户<<<<<<<<<<<<<<<<<");
         List<User> users = new ArrayList<>();
